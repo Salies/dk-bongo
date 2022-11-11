@@ -28,15 +28,4 @@ void loop()
   if(counting[0] && timeout[0] >= TIME) {
     counting[0] = false;
   }
-
-
-  //Acende o led
-    
-  /*if(analogRead(A2) == HIGH){
-    digitalWrite(11, HIGH);
-    Serial.print("A");
-  }
-  else{
-    digitalWrite(11, LOW);
-  }*/
 }
