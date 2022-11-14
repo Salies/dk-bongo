@@ -9,3 +9,9 @@ As this recreation is not console-native, the game must run through a certain pi
 software whose icon resembles a certain aquatic animal.
 
 Original copies of the games must be used! Maybe you can find some lying around on the streets or, rather, on the seven seas...
+
+## Created by
+* [Carlos E. F. de Santana](https://github.com/cadusantana)
+* [Daniel Serezane](https://github.com/Salies)
+* [Guilherme Batalhoti](https://github.com/GuiBatalhoti)
+* Mario's brother (credits to be added)
