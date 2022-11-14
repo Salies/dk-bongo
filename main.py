@@ -5,7 +5,7 @@ from threading import Timer
 ser = serial.Serial('COM3', 9600, timeout = 1)
 
 mp = False
-mp_time = 1.0
+mp_time = 0.05
 def mp_timeout(key, expected):
     global mp
     if(mp == expected):
