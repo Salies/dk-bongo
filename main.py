@@ -14,7 +14,6 @@ def mp_timeout(key, expected):
         return
     elif(mp == -1):
         return
-    print(key)
     dinput.keyDown(key)
     dinput.keyUp(key)
 
