@@ -16,7 +16,8 @@ def mp_timeout(key, expected):
     elif(mp == -1):
         return
     print(key)
-    dinput.press(key)
+    dinput.keyDown(key)
+    dinput.keyUp(key)
 
 while True:
     if ser.in_waiting:
@@ -27,5 +28,3 @@ while True:
         elif(msg == b'R'):
             mp = 'R'
             Timer(mp_time, mp_timeout, ['R', 'L']).start()
-
-# TODO: prevent double input on multipress
