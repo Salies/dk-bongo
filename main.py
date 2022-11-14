@@ -9,7 +9,6 @@ mp_time = 0.05
 def mp_timeout(key, expected):
     global mp
     if(mp == expected):
-        print("combo!")
         mp = -1 # prevent double input afterwards
         dinput.hotkey(key, expected)
         return
