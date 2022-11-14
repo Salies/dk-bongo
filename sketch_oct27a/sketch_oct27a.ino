@@ -1,4 +1,4 @@
-#define TIME 100
+#define TIME 300
 unsigned short timeout[2] = {TIME, TIME};
 bool counting[2] = {false, false};
 //String msg;
@@ -30,7 +30,7 @@ void loop()
     counting[0] = false;
   }
 
-  if(analogRead(A4) > 400 && timeout[1] >= TIME) {
+  if(analogRead(A4) > 300 && timeout[1] >= TIME) {
     Serial.print("L");
     timeout[1] = 0;
     counting[1] = true;

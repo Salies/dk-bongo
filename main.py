@@ -1,38 +1,31 @@
 import serial
-import pydirectinput
+import pydirectinput as dinput
 from threading import Timer
-
-mp_timing = 0.5 # multipress timeout
-mp = False
-# temporizers for simultaneous pressing detection
-def mp_timeout():
-    global mp
-    mp = False
 
 ser = serial.Serial('COM3', 9600, timeout = 1)
 
+mp = False
+mp_time = 1.0
+def mp_timeout(key, expected):
+    global mp
+    if(mp == expected):
+        print("combo!")
+        mp = -1 # prevent double input afterwards
+        dinput.hotkey(key, expected)
+        return
+    elif(mp == -1):
+        return
+    print(key)
+    dinput.press(key)
+
 while True:
     if ser.in_waiting:
-        msg = ser.read().decode('utf-8')
-        if msg == "L":
-            if(mp == "R"):
-                pydirectinput.keyDown("shift")
-                pydirectinput.press("alt")
-                pydirectinput.keyUp("shift")
-                mp = False
-            else:
-                pydirectinput.press("alt")
-                mp = "L"
-                Timer(mp_timing, mp_timeout).start()
-        elif msg == "R":
-            if(mp == "L"):
-                pydirectinput.keyDown("alt")
-                pydirectinput.press("shift")
-                pydirectinput.keyUp("alt")
-                mp = False
-            else:
-                pydirectinput.press("shift")
-                mp = "R"
-                Timer(mp_timing, mp_timeout).start()  
+        msg = ser.read()
+        if(msg == b'L'):
+            mp = 'L'
+            Timer(mp_time, mp_timeout, ['L', 'R']).start()
+        elif(msg == b'R'):
+            mp = 'R'
+            Timer(mp_time, mp_timeout, ['R', 'L']).start()
 
 # TODO: prevent double input on multipress
