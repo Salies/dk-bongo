@@ -14,4 +14,4 @@ Original copies of the games must be used! Maybe you can find some lying around 
 * [Carlos E. F. de Santana](https://github.com/cadusantana)
 * [Daniel Serezane](https://github.com/Salies)
 * [Guilherme Batalhoti](https://github.com/GuiBatalhoti)
-* Mario's brother (credits to be added)
+* Luiz Henrique Rocha Moraes
